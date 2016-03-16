@@ -55,6 +55,7 @@
 
 .track-cell {
   padding: 3rem;
+  white-space: nowrap;
   overflow: scroll;
   border-right: $light-gray 1px solid;
   border-bottom: $light-gray 1px solid;
@@ -71,3 +72,14 @@
 .track-markup {
   flex: 1;
 }
+
+
+// FANCY
+
+::selection {
+  background: $aqua; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $aqua; /* Gecko Browsers */
+}
+
