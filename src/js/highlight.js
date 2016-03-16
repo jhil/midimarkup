@@ -3,7 +3,8 @@ var changed,
     div = $('.track'),
     instruments = ['piano', 'saxophone', 'drums', 'trumpet'],
     notes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
-    modifiers = ['2', '4', '8', '16'];
+    modifiers = ['2', '4', '8', '16'],
+    rest = [';'];
 
 
 function markInstruments() {
@@ -60,6 +61,24 @@ console.log('----');
 }
 
 
+function markRests() {
+    var html = div.html().replace(/<\/?span class="track-rest">/gi, ''),
+        text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '),
+        exp;
+    $.each(rests, function(i, rest) {
+        exp = new RegExp('(' + rest + ')\\b', 'gi');
+        html = html.replace(exp, function(m) {
+console.log('REST MATCH:', m);
+            return '<span class="track-rest">' + m + '</span>';
+        });
+    });
+    //html = html.replace('&nbsp;', ' ').replace(/\s+/g, ' ');
+console.log('HTML:', html);
+console.log('----');
+    div.html(html);
+}
+
+
 setInterval(function() {
     var html = div.html();
     if ( lastValue != html && html ) {
@@ -70,6 +89,7 @@ setInterval(function() {
         markInstruments();
         markNotes();
         markModifiers();
+        markRests();
         setEndOfContenteditable(div[0]);
     }
 }, 250);

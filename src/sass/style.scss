@@ -40,6 +40,7 @@ footer {
   text-align: center;
 }
 
+
 // EDITOR
 
 .editor {
@@ -106,7 +107,7 @@ footer {
 }
 
 .track-instrument {
-  color: $red;
+  color: $green;
   background: $dark-gray;
 }
 
@@ -120,6 +121,11 @@ footer {
   background: $dark-gray;
 }
 
+.track-rest {
+  color: $red;
+  background: $dark-gray;
+}
+
 
 // FANCY
 
@@ -129,4 +135,3 @@ footer {
 ::-moz-selection {
   background: $aqua; /* Gecko Browsers */
 }
-

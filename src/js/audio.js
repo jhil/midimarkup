@@ -1,6 +1,6 @@
-var soundPlay = new Audio("/img/play.wav");
-var soundStop = new Audio("/img/stop.wav");
-var sayInstrument = new SpeechSynthesisUtterance('trumpet');
+var soundPlay = new Audio("/img/play.wav"),
+    soundStop = new Audio("/img/stop.wav"),
+    sayInstrument = new SpeechSynthesisUtterance('trumpet');
 
 
 $('#play-toggle').on({
