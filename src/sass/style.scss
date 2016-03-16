@@ -35,21 +35,18 @@
 
 .sequencer {
   background: $black;
-  border-left: $light-gray 1px solid;
 }
 
 
 // TRACK
 
 .track {
-  border: 0;
   color: $white;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
   resize: none;
   text-transform: uppercase;
-  width: 100%;
   padding: 3rem;
   white-space: nowrap;
   overflow: scroll;
