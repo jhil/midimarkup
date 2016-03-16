@@ -10,7 +10,7 @@
 // NAV
 
 nav {
-  padding: 6rem 3rem;
+  padding: 4rem 3rem;
   display: flex;
 }
 
@@ -21,15 +21,32 @@ nav {
 
 .sub {
   opacity: .5;
+  transition: .2s all;
   a {
     text-decoration: none;
     font-weight: normal;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &:hover {
+    opacity: 1;
   }
 }
+
+footer {
+  @extend .sub;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
 
 // EDITOR
 
 .editor {
+  -webkit-box-shadow: 0px 0 2rem 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 2rem 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 2rem 0px rgba(0,0,0,0.1);
 }
 
 
@@ -44,7 +61,7 @@ nav {
 .header-title {
   padding: 2rem 3rem;
   flex: 1;
-  line-height: 4.25;
+  line-height: 4.5;
 }
 
 .header-player {
@@ -75,7 +92,7 @@ nav {
 
 .track {
   background: $black;
-  color: $white;
+  color: $light-gray;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
@@ -104,6 +121,11 @@ nav {
   background: $dark-gray;
 }
 
+.track-rest {
+  color: $red;
+  background: $dark-gray;
+}
+
 
 // FANCY
 
@@ -113,4 +135,3 @@ nav {
 ::-moz-selection {
   background: $aqua; /* Gecko Browsers */
 }
-
