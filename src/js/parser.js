@@ -19,17 +19,14 @@ var play = function () {
   console.log("play!");
   var soundfont = new SoundFont(ctx);
 
-  $(".track").each(function( index ) {
-    var instrument = $(this).find(".track-instrument").text();
-    var markup = $(this).find(".track-markup").text();
-    var keys = parseMarkup(markup);
+  var markup = $('.track').text();
+  var keys = parseMarkup(markup);
 
-    var instrument = soundfont.instrument('acoustic_grand_piano');
-    instrument.onready( function() {
-      instrument.play('C4', 0);
-    });
-
+  var instrument = soundfont.instrument('acoustic_grand_piano');
+  instrument.onready( function() {
+    instrument.play('C4', 0);
   });
+
 };
 
 var parseMarkup = function( markup ) {
