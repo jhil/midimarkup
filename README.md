@@ -1,7 +1,7 @@
 MIDI Markup
 ========================================
 
-MIDI markup language for accessible music composing for the blind, visually impaired, and sighted. Build in progress by Jeff, Stef, and Niko at [SXSW Music Hackathon][http://www.sxsw.com/music/conference/hackathon].
+MIDI markup language for accessible music composing for the blind, visually impaired, and sighted. Build in progress by Jeff, Stef, and Niko at [SXSW Music Hackathon](http://www.sxsw.com/music/conference/hackathon).
 
 ## Setup
 
