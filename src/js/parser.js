@@ -147,6 +147,9 @@ var noteToKey = function( token ) {
         if (key === -1) return;
         key--;
         break;
+      case ':':
+        key = -1;
+        break;
       case '1':
         duration = 1.0;
         break;
