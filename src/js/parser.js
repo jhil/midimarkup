@@ -22,6 +22,12 @@ $( document ).keypress(function (e) {
   }
 });
 
+$( document ).click(function (e) {
+      e.preventDefault();
+      soundfont = new Soundfont(ctx);
+      togglePlay();
+});
+
 var playing = false;
 
 var togglePlay = function () {

@@ -3,9 +3,11 @@ var soundStop = new Audio("/img/stop.wav");
 var sayInstrument = new SpeechSynthesisUtterance('trumpet');
 
 
+
 $('#play-toggle').on({
   'click': function(){
     soundPlay.play();
+    playTrack.play();
   }
 });
 
@@ -19,6 +21,7 @@ $( document ).keydown(function (e) {
   if(e.shiftKey && e.keyCode == 13){
     if($('#play-toggle').children("img").attr('src') == '/img/icon-play.svg') {
       soundStop.play();
+      playTrack.play();
     } else {
       soundPlay.play();
     }
@@ -47,4 +50,5 @@ $(document).keyup(function(e) {
       }
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
+
 
