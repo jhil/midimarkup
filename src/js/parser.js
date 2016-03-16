@@ -2,14 +2,16 @@ var SoundFont = require('soundfont-player');
 var ctx = new AudioContext();
 
 $( document ).keypress(function (e) {
- var key = e.which;
-  switch( key ) {
-    case 13: //Enter key
+  if(e.shiftKey){
+    var key = e.which;
+    switch( key ) {
+      case 13: //Enter key
       e.preventDefault();
       play();
       break;
-    default:
+      default:
       break;
+    }
   }
 });
 
