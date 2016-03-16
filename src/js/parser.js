@@ -4,28 +4,39 @@ var soundfont,
     TIEMPO = 120.0,
     MEASURE = 60.0/TIEMPO * 4.0,
     OCTAVE = 4,
+    soundPlay = new Audio("/img/play.mp3"),
+    soundStop = new Audio("/img/stop.mp3"),
     Soundfont = require('soundfont-player');
 
-
-$( document ).keypress(function (e) {
-  if(e.shiftKey){
-    var key = e.which;
-    switch( key ) {
-      case 13: //Enter key
-      e.preventDefault();
-      soundfont = new Soundfont(ctx);
-      togglePlay();
-      break;
-      default:
-      break;
+$( document ).keydown(function (e) {
+  if(e.shiftKey && e.keyCode == 13){
+    if($('#play-toggle').children("img").attr('src') == '/img/icon-play.svg') {
+      soundStop.play();
+    } else {
+      soundPlay.play();
     }
+    soundfont = new Soundfont(ctx);
+    togglePlay();
+    e.preventDefault();
+  }
+});
+
+$('#play-toggle').on({
+  'click': function(){
+    soundPlay.play();
+  }
+});
+
+$('#stop-toggle').on({
+  'click': function(){
+    soundStop.play();
   }
 });
 
 $( document ).click(function (e) {
-      e.preventDefault();
-      soundfont = new Soundfont(ctx);
-      togglePlay();
+  e.preventDefault();
+  soundfont = new Soundfont(ctx);
+  togglePlay();
 });
 
 var playing = false;
@@ -40,6 +51,7 @@ var togglePlay = function () {
 
 var stopAll = function () {
   for (var x in listOfPlayers) {
+    console.log(listOfPlayers);
     listOfPlayers[x].stop(0);
   }
   listOfPlayers = [];
@@ -55,6 +67,7 @@ var play = function () {
   for (var i = 0; i < lines.length; i++){
     var trackCommands = parseMarkup(lines[i].trim());
     trackCommands = addTimes(trackCommands);
+
     playTrack(trackCommands);
   }
 };
@@ -70,11 +83,14 @@ var playTrack = function ( commands ) {
           duration   = commands[x].duration,
           instrument = commands[x].instrument;
 
-      var inst = soundfont.instrument(instrument);
-      inst.onready(function() {
-        var note = inst.play(key, time, MEASURE * duration);
-        listOfPlayers.push(note);
-      });
+      if (key) {
+        var inst = soundfont.instrument(instrument);
+        inst.onready(function() {
+          console.log(key + ": " + time + ": " + duration);
+          var note = inst.play(key, time, MEASURE * duration);
+          listOfPlayers.push(note);
+        });
+      }
     })(x);
   }
 };
