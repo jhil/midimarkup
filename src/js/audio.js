@@ -1,5 +1,5 @@
-var soundPlay = new Audio("/img/play.wav"),
-    soundStop = new Audio("/img/stop.wav"),
+var soundPlay = new Audio("/img/play.mp3"),
+    soundStop = new Audio("/img/stop.mp3"),
     sayInstrument = new SpeechSynthesisUtterance('trumpet');
 
 

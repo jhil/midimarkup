@@ -61,7 +61,7 @@ footer {
 .header-title {
   padding: 2rem 3rem;
   flex: 1;
-  line-height: 4.25;
+  line-height: 4.5;
 }
 
 .header-player {
@@ -92,7 +92,7 @@ footer {
 
 .track {
   background: $black;
-  color: $white;
+  color: $light-gray;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
@@ -107,7 +107,7 @@ footer {
 }
 
 .track-instrument {
-  color: $green;
+  color: $red;
   background: $dark-gray;
 }
 
