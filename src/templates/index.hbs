@@ -2,17 +2,47 @@
 {{#content "main" mode="prepend"}}
 
 <div class="content">
-  <div class="header">
-    <div>
-      MIDI Markup
-    </div>
-    <div class="player">
-      PLAY PAUSE STOP
-    </div>
-  </div>
-  <textarea rows="16" id="editor">
   
-  </textarea>  
+  <div class="editor">
+    
+    <div class="header">
+      <div class="header-title">
+        MIDI Markup
+      </div>
+      <div class="header-player">
+        [PLAY] [PAUSE] [STOP]
+      </div>
+    </div>
+    
+    <div class="sequencer">
+      <div class="track">
+        <div class="track-instrument track-cell" contentEditable="true">
+          piano
+        </div>
+        <div class="track-markup track-cell" contentEditable="true">
+          g+ b a f
+        </div>
+      </div>
+      <div class="track">
+        <div class="track-instrument track-cell" contentEditable="true">
+          guitar
+        </div>
+        <div class="track-markup track-cell" contentEditable="true">
+          g+ b a f
+        </div>
+      </div>
+      <div class="track">
+        <div class="track-instrument track-cell" contentEditable="true">
+          saxophone
+        </div>
+        <div class="track-markup track-cell" contentEditable="true">
+          g+ b a f
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 {{/content}}

@@ -6,15 +6,68 @@
 @import 'layout';
 @import 'responsive';
 
-textarea#editor {
-  background: $dark-gray;
+
+// EDITOR
+
+.editor {
+}
+
+
+// HEADER
+
+.header {
+  background: $light-gray;
+  color: $black;
+  display: flex;
+}
+
+.header-title {
+  width: $left-width;
+  padding: 2rem 3rem;
+}
+
+.header-player {
+  padding: 2rem 3rem;
+}
+
+
+// SEQUENCER
+
+.sequencer {
+  background: $black;
+}
+
+
+// TRACK
+
+.track {
+  display: flex;
   border: 0;
-  color: $light-gray;
+  color: $white;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
   resize: none;
-  rows: 4;
   text-transform: uppercase;
   width: 100%;
+}
+
+.track-cell {
+  padding: 2rem 3rem;
+  overflow: scroll;
+  border-right: $light-gray 1px solid;
+  border-bottom: $light-gray 1px solid;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.track-instrument {
+  width: $left-width;
+  border-left: $light-gray 1px solid;
+  color: $yellow;
+}
+
+.track-markup {
+  flex: 1;
 }
