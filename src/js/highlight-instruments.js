@@ -1,7 +1,7 @@
 var changed,
     lastValue = '',
     div = $('.track'),
-    instruments = ['piano', 'saxophone', 'drums'];
+    instruments = ['piano', 'saxophone', 'drums', 'trumpet'];
 
 function markInstruments() {
     var html = div.html().replace(/<\/?span class="track-instrument">/gi, ''),

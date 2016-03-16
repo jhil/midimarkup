@@ -8,7 +8,7 @@ function markModifiers() {
         text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '),
         exp;
     $.each(modifiers, function(i, modifier) {
-        exp = new RegExp('\\b(' + modifier + ')\\b', 'gi');
+        exp = new RegExp('(' + modifier + ')\\b', 'gi');
         html = html.replace(exp, function(m) {
 console.log('MODIFIER MATCH:', m);
             return '<span class="track-modifier">' + m + '</span>';

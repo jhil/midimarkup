@@ -22,21 +22,21 @@
 }
 
 .header-title {
-  padding: 3rem;
+  padding: 2rem 3rem;
   text-align: right;
   flex: 1;
-  line-height: 2.75;
+  line-height: 4.25;
 }
 
 .header-player {
-  padding: 3rem;
+  padding: 2rem 3rem;
   display: flex;
 }
 
 .player-icon {
-  width: 1rem;
-  height: 1rem;
-  padding: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 1.5rem;
   margin-right: 2rem;
   cursor: pointer;
   transition: .2s all;
@@ -62,8 +62,14 @@
   padding: 3rem;
   white-space: nowrap;
   overflow: scroll;
-  border: $light-gray 1px solid;
+  border: $light-gray .25rem solid;
   outline: 0;
+}
+
+
+.track-instrument {
+  color: $red;
+  background: $dark-gray;
 }
 
 .track-note {
@@ -72,12 +78,7 @@
 }
 
 .track-modifier {
-  color: $green;
-  background: $dark-gray;
-}
-
-.track-instrument {
-  color: $red;
+  color: $yellow;
   background: $dark-gray;
 }
 
