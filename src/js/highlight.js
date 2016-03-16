@@ -1,7 +1,7 @@
 var changed,
     lastValue = '',
     div = $('.track'),
-    instruments = ['piano', 'saxophone', 'drums', 'trumpet'],
+    instruments = ['piano', 'saxophone', 'drums', 'trumpet', 'violin', 'flute', 'guitar'],
     notes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
     modifiers = ['2', '4', '8', '16'];
 
@@ -71,7 +71,7 @@ setInterval(function() {
         markModifiers();
         setEndOfContenteditable(div[0]);
     }
-}, 250);
+}, 500);
 
 
 function setEndOfContenteditable(contentEditableElement)
