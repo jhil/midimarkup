@@ -1,4 +1,6 @@
-var ctx, soundfont,
+var soundfont, 
+    ctx = new AudioContext(),
+    listOfPlayers = [],
     TIEMPO = 120.0,
     MEASURE = 60.0/TIEMPO * 4.0,
     Soundfont = require('soundfont-player');
@@ -10,15 +12,29 @@ $( document ).keypress(function (e) {
     switch( key ) {
       case 13: //Enter key
       e.preventDefault();
-      ctx = new AudioContext();
       soundfont = new Soundfont(ctx);
-      play();
+      togglePlay();
       break;
       default:
       break;
     }
   }
 });
+
+var playing = false;
+
+var togglePlay = function () {
+  if (playing) 
+    stopAll();
+  else
+    play();
+  playing = !playing;
+};
+
+var stopAll = function () {
+  for (var x in listOfPlayers)
+    listOfPlayers[x].stop(0);
+};
 
 var play = function () {
   console.log("play!");
@@ -27,7 +43,7 @@ var play = function () {
   for (var x in lines)
     lines[x] = lines[x].trim();
 
-  console.log(lines);
+  // console.log(lines);
   for (var i = 0; i < lines.length; i++){
     var trackCommands = parseMarkup(lines[i].trim());
     trackCommands = addTimes(trackCommands);
@@ -48,8 +64,9 @@ var playTrack = function ( commands ) {
 
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
-        console.log("key: " + key  + " time: " + time + " duration: " + duration);
-        inst.play(key, time, MEASURE * duration);
+        // console.log("key: " + key  + " time: " + time + " duration: " + duration);
+        var note = inst.play(key, time, MEASURE * duration);
+        listOfPlayers.push(note);
       });
     })(x);
   }
@@ -74,7 +91,7 @@ var parseMarkup = function( markup ) {
     if (key) {
       key["key"] = keyToNote(key["key"])
       output.push(key);
-      console.log(key);
+      // console.log(key);
     } 
   }
   return output; // i.e. { key: "Cb4", duration: 1 }
@@ -87,12 +104,11 @@ var noteToKey = function( token ) {
       duration = 1;
 
   if (token.length > 3) {
-    console.log(token);
     switch (token) {
       case (token.match(/^[T][0-9]{3}\b/) || {}).input:
         TIEMPO = parseFloat(token.substring(1));
         MEASURE = 60.0/TIEMPO * 4.0;
-        console.log("New Tiemp: " + TIEMPO);
+        console.log("new tiempo: " + TIEMPO);
         return;
       case "PIANO":
         instrumentSetting = 'acoustic_grand_piano';
@@ -114,7 +130,6 @@ var noteToKey = function( token ) {
     }
   }
 
-  console.log("here: " + token);
   for (var x in token) {
     var cmd = token.charAt(x);
     switch( cmd ) {
@@ -166,7 +181,7 @@ var noteToKey = function( token ) {
         return;
     } 
   }
-  console.log(key + ": " + duration + ": " + instrumentSetting); 
+  // console.log(key + ": " + duration + ": " + instrumentSetting); 
   return {
       key: key, 
       duration: duration, 
