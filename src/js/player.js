@@ -15,7 +15,7 @@ $('#stop-toggle').on({
 });
 
 $( document ).keydown(function (e) {
-  if(e.shiftKey){
+  if(e.shiftKey && e.keyCode == 13){
     if($('#play-toggle').children("img").attr('src') == '/img/icon-play.svg') {
       $('#play-toggle').children("img").attr('src','/img/icon-pause.svg');
     } else {
@@ -23,12 +23,3 @@ $( document ).keydown(function (e) {
     }
   }
 });
-
-$( document ).keydown(function (e) {
-  if(e.keyCode == 39){
-    if(e.ctrlKey){
-      $('.track').css('background')
-    }
-  }
-});
-

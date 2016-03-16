@@ -53,7 +53,7 @@
 
 .track {
   background: $black;
-  color: $light-gray;
+  color: $white;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
@@ -85,9 +85,9 @@
 // FANCY
 
 ::selection {
-  background: $yellow; /* WebKit/Blink Browsers */
+  background: $aqua; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: $yellow; /* Gecko Browsers */
+  background: $aqua; /* Gecko Browsers */
 }
 
