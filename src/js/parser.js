@@ -3,6 +3,7 @@ var soundfont,
     listOfPlayers = [],
     TIEMPO = 120.0,
     MEASURE = 60.0/TIEMPO * 4.0,
+    OCTAVE = 4,
     Soundfont = require('soundfont-player');
 
 
@@ -32,8 +33,10 @@ var togglePlay = function () {
 };
 
 var stopAll = function () {
-  for (var x in listOfPlayers)
+  for (var x in listOfPlayers) {
     listOfPlayers[x].stop(0);
+  }
+  listOfPlayers = [];
 };
 
 var play = function () {
@@ -43,7 +46,6 @@ var play = function () {
   for (var x in lines)
     lines[x] = lines[x].trim();
 
-  // console.log(lines);
   for (var i = 0; i < lines.length; i++){
     var trackCommands = parseMarkup(lines[i].trim());
     trackCommands = addTimes(trackCommands);
@@ -64,7 +66,6 @@ var playTrack = function ( commands ) {
 
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
-        // console.log("key: " + key  + " time: " + time + " duration: " + duration);
         var note = inst.play(key, time, MEASURE * duration);
         listOfPlayers.push(note);
       });
@@ -89,13 +90,12 @@ var parseMarkup = function( markup ) {
   for (var x in notes) {  
     var key = noteToKey(notes[x]);
     if (key) {
-      key["key"] = keyToNote(key["key"])
+      key.key = keyToNote(key.key);
       output.push(key);
-      // console.log(key);
     } 
   }
-  return output; // i.e. { key: "Cb4", duration: 1 }
-}
+  return output; 
+};
 
 var instrumentSetting = 'acoustic_grand_piano';
 
@@ -109,6 +109,9 @@ var noteToKey = function( token ) {
         TIEMPO = parseFloat(token.substring(1));
         MEASURE = 60.0/TIEMPO * 4.0;
         console.log("new tiempo: " + TIEMPO);
+        return;
+      case (token.match(/(OCTAVE)[0-9]{1}\b/) || {}).input:
+        OCTAVE = parseInt(token.substring(6));
         return;
       case "PIANO":
         instrumentSetting = 'acoustic_grand_piano';
@@ -187,12 +190,11 @@ var noteToKey = function( token ) {
       duration: duration, 
       instrument: instrumentSetting 
     };
-}
+};
 
 var keyToNote = function ( key ) {
-  var octave = 4;
   var A0 = 0x15; // first note
   var C8 = 0x6C; // last note
   var number2key = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
-  return number2key[ key % 12] + octave;
-}
+  return number2key[ key % 12] + OCTAVE;
+};
