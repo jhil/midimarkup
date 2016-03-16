@@ -44,7 +44,7 @@ var playTrack = function ( commands ) {
 
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
-        inst.play(key, x, 1);
+        inst.play(key, 2 * x * duration, 2 * duration);
       });
     })(x);
   }
@@ -79,7 +79,7 @@ var noteToKey = function( token ) {
         return;
       case "DRUMS":
         console.log("hererererererer");
-        instrumentSetting = 'taiko_drum';
+        instrumentSetting = 'gunshot';
         return;
       case "GUITAR":
         instrumentSetting = 'acoustic_guitar_steel';
@@ -129,10 +129,16 @@ var noteToKey = function( token ) {
         key--;
         break;
       case '1':
+        duration = 1.0;
+        break;
       case '2':
+        duration = 0.5;
+        break;
       case '4':
+        duration = 0.25;
+        break;
       case '8':
-        duration = parseInt(cmd);
+        duration = 0.125;
         break;
       default:
         return;
