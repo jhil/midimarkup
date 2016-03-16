@@ -28,6 +28,7 @@ var play = function () {
   console.log(lines);
   for (var i = 0; i < lines.length; i++){
     var trackCommands = parseMarkup(lines[i].trim());
+    trackCommands = addTimes(trackCommands);
     playTrack(trackCommands);
   }
 };
@@ -39,15 +40,27 @@ var playTrack = function ( commands ) {
 
     (function(x) {
       var key        = commands[x].key,
+          time       = commands[x].timeStart,
           duration   = commands[x].duration,
           instrument = commands[x].instrument;
 
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
-        inst.play(key, 2 * x * duration, 2 * duration);
+        console.log("key: " + key  + " time: " + time + " duration: " + duration);
+        inst.play(key, time, 2 * duration);
       });
     })(x);
   }
+};
+
+var addTimes = function ( instructions ) {
+  var time = 0.0;
+  for (var x in instructions) {
+    var step = instructions[x];
+    step.timeStart = time;
+    time = time + 2.0 * step.duration;
+  }
+  return instructions;
 };
 
 var parseMarkup = function( markup ) {
@@ -78,7 +91,6 @@ var noteToKey = function( token ) {
         instrumentSetting = 'acoustic_grand_piano';
         return;
       case "DRUMS":
-        console.log("hererererererer");
         instrumentSetting = 'gunshot';
         return;
       case "GUITAR":
