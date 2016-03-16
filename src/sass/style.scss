@@ -53,7 +53,7 @@
 
 .track {
   background: $black;
-  color: $white;
+  color: $light-gray;
   font-family: $mono;
   font-size: 1rem;
   outline: 0;
@@ -68,12 +68,17 @@
 
 .track-note {
   color: $orange;
-  background: $gray;
+  background: $dark-gray;
 }
 
 .track-modifier {
   color: $green;
-  background: $gray;
+  background: $dark-gray;
+}
+
+.track-instrument {
+  color: $red;
+  background: $dark-gray;
 }
 
 
