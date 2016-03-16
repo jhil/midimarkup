@@ -14,7 +14,7 @@ $('#stop-toggle').on({
     }
 });
 
-$( document ).keypress(function (e) {
+$( document ).keydown(function (e) {
   if(e.shiftKey){
     if($('#play-toggle').children("img").attr('src') == '/img/icon-play.svg') {
       $('#play-toggle').children("img").attr('src','/img/icon-pause.svg');
@@ -23,3 +23,12 @@ $( document ).keypress(function (e) {
     }
   }
 });
+
+$( document ).keydown(function (e) {
+  if(e.keyCode == 39){
+    if(e.ctrlKey){
+      $('.track').css('background')
+    }
+  }
+});
+
