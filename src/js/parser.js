@@ -17,16 +17,30 @@ $( document ).keypress(function (e) {
 
 var play = function () {
   console.log("play!");
-  var soundfont = new SoundFont(ctx);
 
   var markup = $('.track').text();
-  var keys = parseMarkup(markup);
+  var trackCommands = parseMarkup(markup);
 
-  var instrument = soundfont.instrument('acoustic_grand_piano');
-  instrument.onready( function() {
-    instrument.play('C4', 0);
-  });
+  playTrack(trackCommands);
+};
 
+var playTrack = function ( commands ) {
+  var time = 0,
+      soundfont = new SoundFont(ctx);
+
+  for ( var x = 0; x < commands.length; x++ ) {
+
+    var inst = soundfont.instrument('acoustic_grand_piano');
+
+    (function(x) {
+      var key        = commands[x].key,
+          duration   = commands[x].duration;
+
+      inst.onready(function() {
+        inst.play(key, x + 1, 1);
+      });
+    })(x);
+  }
 };
 
 var parseMarkup = function( markup ) {
@@ -38,21 +52,42 @@ var parseMarkup = function( markup ) {
     if (key) {
       key["key"] = keyToNote(key["key"])
       output.push(key);
+      console.log(key);
     } 
   }
-
   return output; // i.e. { key: "Cb4", duration: 1 }
 }
 
-var noteToKey = function( note ) {
-  if (note.length > 3)
-    return;
-
+var noteToKey = function( token ) {
   var key = -1,
-      duration = 1;
+      duration = 1,
+      instrument = 'acoustic_grand_piano';
 
-  for (var x in note) {
-    var cmd = note.charAt(x);
+  if (token.length > 3) {
+    console.log(token);
+    switch (token) {
+      case "PIANO":
+        instrument = 'acoustic_grand_piano';
+        break;
+      case "DRUMS":
+        instrument = 'taiko_drum';
+        break;
+      case "GUITAR":
+        instrument = 'acoustic_guitar_steel';
+        break;
+      case "SAXOPHONE":
+        instrument = 'alto_sax';
+        break;
+      case "TRUMPET":
+        instrument = 'trumpet';
+        break;
+      default:
+        return;
+    }
+  }
+
+  for (var x in token) {
+    var cmd = token.charAt(x);
     switch( cmd ) {
       case 'A':
         key = 69;
@@ -94,7 +129,11 @@ var noteToKey = function( note ) {
     } 
   }
   console.log(key + ": " + duration); 
-  return { "key": key, "duration": duration };
+  return {
+      key: key, 
+      duration: duration, 
+      instrument: instrument 
+    };
 }
 
 var keyToNote = function ( key ) {
