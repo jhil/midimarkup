@@ -1,4 +1,6 @@
 var ctx, soundfont,
+    TIEMPO = 120.0,
+    MEASURE = 60.0/TIEMPO * 4.0,
     Soundfont = require('soundfont-player');
 
 
@@ -47,7 +49,7 @@ var playTrack = function ( commands ) {
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
         console.log("key: " + key  + " time: " + time + " duration: " + duration);
-        inst.play(key, time, 2 * duration);
+        inst.play(key, time, MEASURE * duration);
       });
     })(x);
   }
@@ -58,7 +60,7 @@ var addTimes = function ( instructions ) {
   for (var x in instructions) {
     var step = instructions[x];
     step.timeStart = time;
-    time = time + 2.0 * step.duration;
+    time = time + MEASURE * step.duration;
   }
   return instructions;
 };
@@ -87,6 +89,11 @@ var noteToKey = function( token ) {
   if (token.length > 3) {
     console.log(token);
     switch (token) {
+      case (token.match(/^[T][0-9]{3}\b/) || {}).input:
+        TIEMPO = parseFloat(token.substring(1));
+        MEASURE = 60.0/TIEMPO * 4.0;
+        console.log("New Tiemp: " + TIEMPO);
+        return;
       case "PIANO":
         instrumentSetting = 'acoustic_grand_piano';
         return;
