@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="14px" height="17px" viewBox="0 0 14 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-play</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-456.000000, -160.000000)" fill="#222222">
+            <path d="M456,175.417742 C456,176.155493 456.737751,176.518116 457.300442,176.193006 C458.063202,175.755357 468.666807,169.340676 469.304524,168.94054 C469.892224,168.590421 469.904728,167.727627 469.304524,167.377508 C468.404218,166.827321 457.850629,160.450153 457.325451,160.137547 C457.1754,160.037513 457.012844,160 456.862793,160 C456.387632,160 456,160.41264 456,160.925315 L456,175.417742 Z" id="icon-play"></path>
+        </g>
+    </g>
+</svg>
