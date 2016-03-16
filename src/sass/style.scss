@@ -7,6 +7,26 @@
 @import 'responsive';
 
 
+// NAV
+
+nav {
+  padding: 6rem 3rem;
+  display: flex;
+}
+
+.nav-right {
+  text-align: right;
+  flex: 1;
+}
+
+.sub {
+  opacity: .5;
+  a {
+    text-decoration: none;
+    font-weight: normal;
+  }
+}
+
 // EDITOR
 
 .editor {
@@ -23,7 +43,6 @@
 
 .header-title {
   padding: 2rem 3rem;
-  text-align: right;
   flex: 1;
   line-height: 4.25;
 }
@@ -37,7 +56,6 @@
   width: 1.5rem;
   height: 1.5rem;
   padding: 1.5rem;
-  margin-right: 2rem;
   cursor: pointer;
   transition: .2s all;
   &:hover {
@@ -46,6 +64,10 @@
   img {
     width: 100%;
   }
+}
+
+#play-toggle {
+  margin-right: 2rem;
 }
 
 
@@ -64,8 +86,8 @@
   overflow: scroll;
   border: $light-gray .25rem solid;
   outline: 0;
+  cursor: crosshair;
 }
-
 
 .track-instrument {
   color: $red;
