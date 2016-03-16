@@ -10,7 +10,7 @@
 // NAV
 
 nav {
-  padding: 4rem 3rem;
+  padding: 6rem 3rem;
   display: flex;
 }
 
@@ -22,7 +22,7 @@ nav {
 .sub {
   opacity: .5;
   a {
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: normal;
   }
 }
@@ -43,7 +43,6 @@ nav {
 
 .header-title {
   padding: 2rem 3rem;
-  text-align: right;
   flex: 1;
   line-height: 4.25;
 }
@@ -57,7 +56,6 @@ nav {
   width: 1.5rem;
   height: 1.5rem;
   padding: 1.5rem;
-  margin-right: 2rem;
   cursor: pointer;
   transition: .2s all;
   &:hover {
@@ -66,6 +64,10 @@ nav {
   img {
     width: 100%;
   }
+}
+
+#play-toggle {
+  margin-right: 2rem;
 }
 
 
