@@ -1,9 +1,8 @@
 html, body {
   background-color: $black;
-  color: $gray;
+  color: $white;
   font-family: $mono;
   font-size: 16px;
-  font-weight: $light;
   height: 100%;
   line-height: 1.5;
   position: relative;
@@ -24,16 +23,4 @@ img {
     content: ' ';
     display: block;
   }
-}
-
-textarea {
-  font-family: $mono;
-  color: $light-gray;
-  background: $dark-gray;
-  rows: 4;
-  font-size: 1rem;
-  border: 0;
-  outline: 0;
-  resize: none;
-  width: 100%;
 }

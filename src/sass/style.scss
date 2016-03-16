@@ -5,3 +5,15 @@
 @import 'base';
 @import 'layout';
 @import 'responsive';
+
+textarea {
+  font-family: $mono;
+  color: $light-gray;
+  background: $dark-gray;
+  rows: 4;
+  font-size: 1rem;
+  border: 0;
+  outline: 0;
+  resize: none;
+  width: 100%;
+}
