@@ -1,24 +1,9 @@
-Project Template
+MIDI Markup
 ========================================
 
-The [Minimill](https://minimill.co) project template is the best way to build static sites fast.  With one command, build a static page using [Gulp][gulp], [ES6][es6], [Handlebars.js][handlebars], and [SCSS][scss].
+MIDI markup language for accessible music composing for the blind, visually impaired, and sighted.
 
-## Features
-
-- Install the project in just three commands (see "Developing" below).
-- Use [Handlebars.js][handlebars] to keep our HTML organized into templates and partials.
-- Use [SCSS][scss] to keep our CSS organized into logical components.
-- Use [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
-- Use [Browsersync][browsersync] to automatically launch a development version of our website, reload the page whenever we change the HTML, and inject changes to CSS, JavaScript, and images with needing to reload.
-- Use [HTML Minifier][htmlmin], [CSSNano][cssnano], [UglifyJS][uglifyjs], and [ImageMin][imagemin] to compress and optimize our HTML, CSS, JavaScript, and images, respectively.
-- Use [SCSS-Lint][scss-lint], [JSHint][jshint], and [JSCS][jscs] to perform [linting][linting] and style checking on our SCSS and JavaScript files.
-- Use [Bable] to allow us to write JavaScript with new [ES6][es6] features. 
-
-All with one command from the terminal:
-
-```
-gulp serve
-```
+Built from the  [Minimill](https://minimill.co) project template.
 
 ## Setup
 
@@ -82,20 +67,3 @@ For use by the Minimill team only.  Deploys to `work.minimill.co/TITLE/`, but wo
     ├── sass/         # Stylesheets
     └── templates/    # Handlebars HTML files, one per page on the site.
 ```
-
-[autoprefixer]: https://css-tricks.com/autoprefixer/
-[bable]: https://babeljs.io/
-[browsersync]: http://www.browsersync.io/
-[cssmin]: https://github.com/ben-eb/cssnano
-[es6]: https://github.com/lukehoban/es6features
-[gulp]: http://gulpjs.com/
-[handlebars]: http://handlebarsjs.com/
-[htmlmin]: https://github.com/kangax/html-minifier
-[imagemin]: https://github.com/imagemin/imagemin
-[jscs]: http://jscs.info/
-[jshint]: http://jshint.com/
-[linting]: https://en.wikipedia.org/wiki/Lint_%28software%29
-[npm-install]: https://nodejs.org/en/download/
-[uglifyjs]: https://github.com/mishoo/UglifyJS
-[scss]: http://sass-lang.com/
-[scss-lint]: https://github.com/brigade/scss-lint
