@@ -6,14 +6,15 @@
 @import 'layout';
 @import 'responsive';
 
-textarea {
-  font-family: $mono;
-  color: $light-gray;
+textarea#editor {
   background: $dark-gray;
-  rows: 4;
-  font-size: 1rem;
   border: 0;
+  color: $light-gray;
+  font-family: $mono;
+  font-size: 1rem;
   outline: 0;
   resize: none;
+  rows: 4;
+  text-transform: uppercase;
   width: 100%;
 }
