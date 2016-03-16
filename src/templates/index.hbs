@@ -5,21 +5,26 @@
   <div class="editor">
     <div class="header">
       <div class="header-player">
-        <img src="/img/icon-play.svg" alt="play" class="player-icon">
-        <img src="/img/icon-pause.svg" alt="play" class="player-icon">
-        <img src="/img/icon-stop.svg" alt="play" class="player-icon">
+        <div class="player-icon" alt="play" id="play-toggle">
+          <img src="/img/icon-play.svg"/>
+        </div>
+        <div class="player-icon" alt="stop" id="stop-toggle">
+          <img src="/img/icon-stop.svg"/>
+        </div>
       </div>
       <div class="header-title">
         MIDI Markup
       </div>
     </div>
-    <div class="sequencer">
-      <div class="track" contenteditable>g+ b a f</div>
+    <div class="track" contenteditable>
+      t120<br>
+      g+ b a f
     </div>
   </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/parser.js"></script>
+<script src="js/player.js"></script>
 {{/content}}
 {{/extend}}

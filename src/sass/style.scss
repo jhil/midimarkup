@@ -25,10 +25,12 @@
   padding: 3rem;
   text-align: right;
   flex: 1;
+  line-height: 2.75;
 }
 
 .header-player {
   padding: 3rem;
+  display: flex;
 }
 
 .player-icon {
@@ -37,19 +39,20 @@
   padding: 1rem;
   margin-right: 2rem;
   cursor: pointer;
-}
-
-
-// SEQUENCER
-
-.sequencer {
-  background: $black;
+  transition: .2s all;
+  &:hover {
+    opacity: .5;
+  }
+  img {
+    width: 100%;
+  }
 }
 
 
 // TRACK
 
 .track {
+  background: $black;
   color: $white;
   font-family: $mono;
   font-size: 1rem;
@@ -77,9 +80,9 @@
 // FANCY
 
 ::selection {
-  background: $aqua; /* WebKit/Blink Browsers */
+  background: $yellow; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: $aqua; /* Gecko Browsers */
+  background: $yellow; /* Gecko Browsers */
 }
 
