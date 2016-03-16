@@ -42,7 +42,6 @@
 // TRACK
 
 .track {
-  display: flex;
   border: 0;
   color: $white;
   font-family: $mono;
@@ -51,26 +50,21 @@
   resize: none;
   text-transform: uppercase;
   width: 100%;
-}
-
-.track-cell {
   padding: 3rem;
   white-space: nowrap;
   overflow: scroll;
-  border-right: $light-gray 1px solid;
-  border-bottom: $light-gray 1px solid;
-  &:focus {
-    outline: 0;
-  }
+  border: $light-gray 1px solid;
+  outline: 0;
 }
 
-.track-instrument {
-  width: $left-width;
-  color: $yellow;
+.track-note {
+  color: $orange;
+  background: $gray;
 }
 
-.track-markup {
-  flex: 1;
+.track-modifier {
+  color: $green;
+  background: $gray;
 }
 
 
