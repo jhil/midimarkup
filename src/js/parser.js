@@ -128,6 +128,12 @@ var noteToKey = function( token ) {
       case "TRUMPET":
         instrumentSetting = 'trumpet';
         return;
+      case "VIOLIN":
+        instrumentSetting = 'violin';
+        return;
+      case "FLUTE":
+        instrumentSetting = 'flute'
+        return;
       default:
         return;
     }
