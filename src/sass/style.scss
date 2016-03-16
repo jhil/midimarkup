@@ -23,11 +23,11 @@
 
 .header-title {
   width: $left-width;
-  padding: 2rem 3rem;
+  padding: 3rem;
 }
 
 .header-player {
-  padding: 2rem 3rem;
+  padding: 3rem;
 }
 
 
@@ -35,6 +35,7 @@
 
 .sequencer {
   background: $black;
+  border-left: $light-gray 1px solid;
 }
 
 
@@ -53,7 +54,7 @@
 }
 
 .track-cell {
-  padding: 2rem 3rem;
+  padding: 3rem;
   overflow: scroll;
   border-right: $light-gray 1px solid;
   border-bottom: $light-gray 1px solid;
@@ -64,7 +65,6 @@
 
 .track-instrument {
   width: $left-width;
-  border-left: $light-gray 1px solid;
   color: $yellow;
 }
 

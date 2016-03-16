@@ -1,10 +1,7 @@
 {{#extend "base"}}
 {{#content "main" mode="prepend"}}
-
 <div class="content">
-  
   <div class="editor">
-    
     <div class="header">
       <div class="header-title">
         MIDI Markup
@@ -13,38 +10,34 @@
         [PLAY] [PAUSE] [STOP]
       </div>
     </div>
-    
     <div class="sequencer">
       <div class="track">
-        <div class="track-instrument track-cell" contentEditable="true">
+        <div class="track-instrument track-cell" contentEditable>
           piano
         </div>
-        <div class="track-markup track-cell" contentEditable="true">
+        <div class="track-markup track-cell" contentEditable>
           g+ b a f
         </div>
       </div>
       <div class="track">
-        <div class="track-instrument track-cell" contentEditable="true">
+        <div class="track-instrument track-cell" contentEditable>
           guitar
         </div>
-        <div class="track-markup track-cell" contentEditable="true">
+        <div class="track-markup track-cell" contentEditable>
           g+ b a f
         </div>
       </div>
       <div class="track">
-        <div class="track-instrument track-cell" contentEditable="true">
+        <div class="track-instrument track-cell" contentEditable>
           saxophone
         </div>
-        <div class="track-markup track-cell" contentEditable="true">
+        <div class="track-markup track-cell" contentEditable>
           g+ b a f
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/parser.js"></script>
 {{/content}}
