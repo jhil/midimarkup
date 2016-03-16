@@ -26,3 +26,16 @@ img {
     display: block;
   }
 }
+
+[contenteditable=true] {
+  &:focus {
+    outline: 0;
+  }
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  color: $gray;
+  cursor: text;
+}

@@ -2,6 +2,10 @@
 {{#content "main" mode="prepend"}}
 
 <div class="content">
+  <nav>
+    <div class="nav-left">MIDI Markup<span class="sub"> music composition for the visually-impaired</span></div>
+    <div class="nav-right sub"><a href="https://github.com/jhil/midimarkup">see docs</a></div>
+  </nav>
   <div class="editor">
     <div class="header">
       <div class="header-player">
@@ -12,14 +16,12 @@
           <img src="/img/icon-stop.svg"/>
         </div>
       </div>
-      <div class="header-title">
-        MIDI Markup
-      </div>
+      <div class="header-title" contenteditable="true" placeholder="Enter a project title..."></div>
     </div>
-    <div class="track" contenteditable>
-      T120 <br>
-      PIANO F8 F8 F8 F8 A8 C8 C8 C8 C8 C8 C8 C8 A8 A8 C8 C8 D8 D8 D8 D8 E8 E8 E8 E8 <br>
-      TRUMPET F A G : G F A G G F A G G D A G G <br>
+    <div class="track" contenteditable="true">
+      T220 <br>
+      PIANO ; ; ; ; F A G G <br>
+      TRUMPET F A G G F A G G F A G G D A G G <br>
       TRUMPET A C B B A C : B B A C B B F C B B <br>
       TRUMPET C E D D C E D D C E D D A E D D <br>
     </div>
@@ -30,8 +32,8 @@
 <script src="js/parser.js"></script>
 <script src="js/player.js"></script>
 <script src="js/audio.js"></script>
-<!-- <script src="js/highlight-instruments.js"></script> -->
-<!-- <script src="js/highlight-notes.js"></script> -->
-<!-- <script src="js/highlight-modifiers.js"></script> -->
+<script src="js/highlight-instruments.js"></script>
+<script src="js/highlight-notes.js"></script>
+<script src="js/highlight-modifiers.js"></script>
 {{/content}}
 {{/extend}}

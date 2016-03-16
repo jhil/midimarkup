@@ -7,6 +7,26 @@
 @import 'responsive';
 
 
+// NAV
+
+nav {
+  padding: 4rem 3rem;
+  display: flex;
+}
+
+.nav-right {
+  text-align: right;
+  flex: 1;
+}
+
+.sub {
+  opacity: .5;
+  a {
+    text-decoration: underline;
+    font-weight: normal;
+  }
+}
+
 // EDITOR
 
 .editor {
@@ -64,8 +84,8 @@
   overflow: scroll;
   border: $light-gray .25rem solid;
   outline: 0;
+  cursor: crosshair;
 }
-
 
 .track-instrument {
   color: $red;

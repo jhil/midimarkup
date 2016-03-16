@@ -1,14 +1,12 @@
 $content-width: 69rem;
 
-$left-width: 15rem;
-
 .content {
   @include clearfix;
   margin: 0 auto;
   max-width: $content-width;
   padding: 0 0.625rem;
   width: 90%;
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: $phone-landscape-max) {
