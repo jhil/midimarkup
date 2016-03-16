@@ -14,9 +14,15 @@ $( document ).keypress(function (e) {
 });
 
 var play = function () {
-  // TODO
   console.log("play!");
   var soundfont = new SoundFont(ctx);
+
+  $(".track").each(function( index ) {
+    var instrument = $(this).find(".track-instrument").text();
+    var markup = $(this).find(".track-markup").text();
+    console.log(instrument + ": " + markup);
+  });
+  
   var instrument = soundfont.instrument('acoustic_grand_piano');
   instrument.onready(function() {
     instrument.play('C4', 0);
