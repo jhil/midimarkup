@@ -1,5 +1,6 @@
-var SoundFont = require('soundfont-player');
-var ctx = new AudioContext();
+var ctx, soundfont,
+    Soundfont = require('soundfont-player');
+
 
 $( document ).keypress(function (e) {
   if(e.shiftKey){
@@ -7,6 +8,8 @@ $( document ).keypress(function (e) {
     switch( key ) {
       case 13: //Enter key
       e.preventDefault();
+      ctx = new AudioContext();
+      soundfont = new Soundfont(ctx);
       play();
       break;
       default:
@@ -25,17 +28,16 @@ var play = function () {
 };
 
 var playTrack = function ( commands ) {
-  var time = 0,
-      soundfont = new SoundFont(ctx);
+  var time = 0;
 
   for ( var x = 0; x < commands.length; x++ ) {
 
-    var inst = soundfont.instrument('acoustic_grand_piano');
-
     (function(x) {
       var key        = commands[x].key,
-          duration   = commands[x].duration;
+          duration   = commands[x].duration,
+          instrument = commands[x].instrument;
 
+      var inst = soundfont.instrument(instrument);
       inst.onready(function() {
         inst.play(key, x + 1, 1);
       });
@@ -58,28 +60,30 @@ var parseMarkup = function( markup ) {
   return output; // i.e. { key: "Cb4", duration: 1 }
 }
 
+var instrumentSetting = 'acoustic_grand_piano';
+
 var noteToKey = function( token ) {
   var key = -1,
-      duration = 1,
-      instrument = 'acoustic_grand_piano';
+      duration = 1;
 
   if (token.length > 3) {
     console.log(token);
     switch (token) {
       case "PIANO":
-        instrument = 'acoustic_grand_piano';
+        instrumentSetting = 'acoustic_grand_piano';
         break;
       case "DRUMS":
-        instrument = 'taiko_drum';
+        console.log("hererererererer");
+        instrumentSetting = 'taiko_drum';
         break;
       case "GUITAR":
-        instrument = 'acoustic_guitar_steel';
+        instrumentSetting = 'acoustic_guitar_steel';
         break;
       case "SAXOPHONE":
-        instrument = 'alto_sax';
+        instrumentSetting = 'alto_sax';
         break;
       case "TRUMPET":
-        instrument = 'trumpet';
+        instrumentSetting = 'trumpet';
         break;
       default:
         return;
@@ -128,11 +132,11 @@ var noteToKey = function( token ) {
         return;
     } 
   }
-  console.log(key + ": " + duration); 
+  console.log(key + ": " + duration + ": " + instrumentSetting); 
   return {
       key: key, 
       duration: duration, 
-      instrument: instrument 
+      instrument: instrumentSetting 
     };
 }
 
