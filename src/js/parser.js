@@ -21,10 +21,15 @@ $( document ).keypress(function (e) {
 var play = function () {
   console.log("play!");
 
-  var markup = $('.track').text();
-  var trackCommands = parseMarkup(markup);
+  var lines = $('.track').text().trim().split('\n');
+  for (var x in lines)
+    lines[x] = lines[x].trim();
 
-  playTrack(trackCommands);
+  console.log(lines);
+  for (var i = 0; i < lines.length; i++){
+    var trackCommands = parseMarkup(lines[i].trim());
+    playTrack(trackCommands);
+  }
 };
 
 var playTrack = function ( commands ) {
@@ -39,7 +44,7 @@ var playTrack = function ( commands ) {
 
       var inst = soundfont.instrument(instrument);
       inst.onready(function() {
-        inst.play(key, x + 1, 1);
+        inst.play(key, x, 1);
       });
     })(x);
   }
@@ -71,25 +76,26 @@ var noteToKey = function( token ) {
     switch (token) {
       case "PIANO":
         instrumentSetting = 'acoustic_grand_piano';
-        break;
+        return;
       case "DRUMS":
         console.log("hererererererer");
         instrumentSetting = 'taiko_drum';
-        break;
+        return;
       case "GUITAR":
         instrumentSetting = 'acoustic_guitar_steel';
-        break;
+        return;
       case "SAXOPHONE":
         instrumentSetting = 'alto_sax';
-        break;
+        return;
       case "TRUMPET":
         instrumentSetting = 'trumpet';
-        break;
+        return;
       default:
         return;
     }
   }
 
+  console.log("here: " + token);
   for (var x in token) {
     var cmd = token.charAt(x);
     switch( cmd ) {
