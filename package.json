@@ -6,7 +6,9 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
+    "soundfont-player": "^0.7.0",
     "babelify": "^7.2.0",
+    "babel-preset-es2015": "^6.3.13",
     "browser-sync": "^2.8.2",
     "browserify": "^13.0.0",
     "event-stream": "^3.3.2",
