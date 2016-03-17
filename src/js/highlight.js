@@ -12,13 +12,13 @@ function markInstruments() {
     $.each(instruments, function(i, instrument) {
         exp = new RegExp('\\b(' + instrument + ')\\b', 'gi');
         html = html.replace(exp, function(m) {
-console.log('INSTRUMENT MATCH:', m);
+        console.log('INSTRUMENT MATCH:', m);
             return '<span class="track-instrument">' + m + '</span>';
         });
     });
     //html = html.replace('&nbsp;', ' ').replace(/\s+/g, ' ');
-console.log('HTML:', html);
-console.log('----');
+    console.log('HTML:', html);
+    console.log('----');
     div.html(html);
 }
 
@@ -30,13 +30,13 @@ function markNotes() {
     $.each(notes, function(i, note) {
         exp = new RegExp('\\b(' + note + ')\\b', 'gi');
         html = html.replace(exp, function(m) {
-console.log('NOTE MATCH:', m);
+        console.log('NOTE MATCH:', m);
             return '<span class="track-note">' + m + '</span>';
         });
     });
     //html = html.replace('&nbsp;', ' ').replace(/\s+/g, ' ');
-console.log('HTML:', html);
-console.log('----');
+    console.log('HTML:', html);
+    console.log('----');
     div.html(html);
 }
 
@@ -48,31 +48,34 @@ function markModifiers() {
     $.each(modifiers, function(i, modifier) {
         exp = new RegExp('(' + modifier + ')\\b', 'gi');
         html = html.replace(exp, function(m) {
-console.log('MODIFIER MATCH:', m);
+        console.log('MODIFIER MATCH:', m);
             return '<span class="track-modifier">' + m + '</span>';
         });
     });
     //html = html.replace('&nbsp;', ' ').replace(/\s+/g, ' ');
-console.log('HTML:', html);
-console.log('----');
+    console.log('HTML:', html);
+    console.log('----');
     div.html(html);
 }
 
+$(document).keydown(function(e) {
+  setInterval(highlightSyntax(), 250);
+});
 
-setInterval(function() {
-    var html = div.html();
-    if ( lastValue != html && html ) {
-//console.log(lastValue);
-//console.log(html);
-//console.log('----');
-        lastValue = html;
-        markInstruments();
-        markNotes();
-        markModifiers();
-        setEndOfContenteditable(div[0]);
-    }
-}, 250);
-
+function highlightSyntax() {
+  var html = div.html();
+  if ( lastValue != html && html ) {
+    window.getSelection().setPosition(0);
+    //console.log(lastValue);
+    //console.log(html);
+    //console.log('----');
+    lastValue = html;
+    markInstruments();
+    markNotes();
+    markModifiers();
+    setEndOfContenteditable(div[0]);
+  }
+};
 
 function setEndOfContenteditable(contentEditableElement)
 {
@@ -93,4 +96,6 @@ function setEndOfContenteditable(contentEditableElement)
         range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
         range.select();//Select the range (make it the visible selection
     }
-}
+};
+
+highlightSyntax();
