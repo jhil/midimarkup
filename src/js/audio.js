@@ -1,21 +1,15 @@
 $(document).keyup(function(e) {
   switch(e.which) {
     case 37: // left
-    break;
-
-    case 38: // up
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(getInstrumentName()));
-    break;
-
     case 39: // right
-    break;
-
+      break;
+    case 38: // up
     case 40: // down
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(getInstrumentName()));
-    
-    break;
-
-    default: return; // exit this handler for other keys
+      var speech = new SpeechSynthesisUtterance(getInstrumentName());
+      window.speechSynthesis.speak(speech);
+      break;
+    default: 
+      return; // exit
   }
   e.preventDefault(); // prevent the default action (scroll / move caret)
 });

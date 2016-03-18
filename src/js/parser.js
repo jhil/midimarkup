@@ -206,7 +206,6 @@ var noteToKey = function( token ) {
         return;
     } 
   }
-  // console.log(key + ": " + duration + ": " + instrumentSetting); 
   return {
       key: key, 
       duration: duration, 
@@ -215,8 +214,6 @@ var noteToKey = function( token ) {
 };
 
 var keyToNote = function ( key ) {
-  var A0 = 0x15; // first note
-  var C8 = 0x6C; // last note
   var number2key = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
   return number2key[ key % 12] + OCTAVE;
 };
