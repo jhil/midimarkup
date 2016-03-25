@@ -1,0 +1,25 @@
+{{#extend "base"}}
+{{#content "main" mode="prepend"}}
+
+<div class="content">
+  <nav>
+    <div class="nav-left"><a href="/">MIDI Markup</a></div>
+    <div class="nav-right sub"><a href="/">Editor</a></div>
+  </nav>
+  <div class="editor">
+    <div class="header">
+      <div class="header-title" contenteditable="true" placeholder="Enter a project title...">Documentation</div>
+    </div>
+  </div>
+  <footer>
+    <div>Created by <a href="https://twitter.com/nikolazaris" target="_blank">Niko Lazaris</a> + <a href="http://stefcohen.com/" target="_blank">Stef Cohen</a> + <a href="http://jhil.co/" target="_blank">Jeff Hilnbrand</a> @ <a href="http://www.sxsw.com/music/conference/hackathon" target="_blank">SXSW Music Hackathon 2016</a></div>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/player.js"></script>
+<script src="js/audio.js"></script>
+{{/content}}
+{{/extend}}
