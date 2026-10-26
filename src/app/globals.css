@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
 body {
   margin: 0;
   background: #f4f3ef;
@@ -182,10 +179,5 @@ footer {
   .editor-footer {
     padding: 16px;
     flex-wrap: wrap;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
   }
 }
