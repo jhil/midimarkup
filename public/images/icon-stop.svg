@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-stop</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-641.000000, -161.000000)" fill="#222222">
+            <path d="M642.25,161 C641.5625,161 641,161.5625 641,162.25 L641,174.725 C641,175.4125 641.5625,175.975 642.25,175.975 L654.725,175.975 C655.4125,175.975 655.975,175.4125 655.975,174.725 L655.975,162.25 C655.975,161.5625 655.4125,161 654.725,161 L642.25,161 Z" id="icon-stop"></path>
+        </g>
+    </g>
+</svg>
