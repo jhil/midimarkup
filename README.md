@@ -1,67 +1,36 @@
-MIDI Markup
-========================================
+# MIDI Markup
 
-MIDI markup language for accessible music composing for the blind, visually impaired, and sighted. Build in progress by Jeff, Stef, and Niko at [SXSW Music Hackathon](http://www.sxsw.com/music/conference/hackathon).
+Compose music with a keyboard in an accessible text editor.
 
-## Setup
+Live at https://midimarkup.jeffand.co.
 
-Install [npm][npm-install]. Then, install gulp:
+Each line is a track and all tracks start together. Use PIANO, GUITAR, SAXOPHONE, TRUMPET, VIOLIN, FLUTE, or DRUMS. `T90` sets tempo, `OCTAVE5` sets octave, `C4` is a quarter note, `C16` a sixteenth, and `R4` or `;4` a quarter rest. Use `+` or `#` for sharp and `-` for flat. Shift + Enter plays or stops.
 
+Instrument samples load over the network on first play through [smplr](https://github.com/danigb/smplr). Loading failures are shown in the editor. No microphone or MIDI device is required.
+
+Created by Jeff Anders, Stef Cohen, and Niko Lazaris at SXSW Music Hackathon 2016.
+
+## Development
+
+Use Node 24 and the pinned pnpm release from `package.json`.
+
+```sh
+corepack enable
+pnpm install --frozen-lockfile
+pnpm dev
 ```
-npm install -g gulp  # May require `sudo`
+
+```sh
+pnpm test          # focused behavior tests
+pnpm typecheck
+pnpm lint
+pnpm format:check
+pnpm build         # Next static export into out/
+pnpm check         # all checks and the production build
+pnpm preview       # serve the exported files with Wrangler
+pnpm cf:deploy     # build and deploy to Cloudflare Workers
 ```
 
-## Developing
+`wrangler.jsonc` owns the subdomain. Deployment requires Cloudflare credentials with Workers and zone access. No application secrets are required. Build output and local credentials stay out of Git.
 
-```
-npm install
-gem install scss_lint
-gulp serve
-```
-
-## Gulp Commands
-
-An overview of Gulp commands available:
-
-### `gulp build`
-
-Builds the site into the `dist` directory.  This includes:
-
-- SCSS w/ linting, sourcemaps and autoprefixing
-- JS linting, uglification, and ES6 to ES5 conversion
-- Handlebars to HTML
-
-### `gulp build:optimized`
-
-This is used for distributing an optimized version of the site (for deployment).  It includes everything from `gulp build` as well as:
-- SCSS minification
-- CSS / JS inline-sourcing 
-
-### `gulp watch`
-
-Watchs for changes in local files and rebuilds parts of the site as necessary, into the `dist` directory.
-
-### `gulp serve`
-
-Runs `gulp watch` in the background, and serves the `dist` directory at `localhost:3000` with automatic reloading using [Browsersync][browsersync].
-
-### `gulp deploy`
-
-For use by the Minimill team only.  Deploys to `work.minimill.co/TITLE/`, but won't do so without proper authentication.
-
-## Structure
-
-```
-├── Gulpfile.js       # Controls Gulp, used for building the website
-├── README.md         # This file
-├── data.yml          # Metadata associated with the site.
-├── dist/             # Gulp builds the static site into this directory
-├── package.json      # Dependencies
-└── src/              # All source code
-    ├── font/         # Font files
-    ├── img/          # Images and SVGs
-    ├── js/           # Javascript libraries and scripts
-    ├── partials/     # Handlebars HTML partials that are included / extended
-    ├── sass/         # Stylesheets
-    └── templates/    # Handlebars HTML files, one per page on the site.
-```
+Browser verification covers the core interaction, a direct reload, keyboard operation, and a narrow viewport. Audio changes also require a listening check.

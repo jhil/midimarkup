@@ -1,0 +1,281 @@
+:root {
+  color-scheme: light;
+  font-size: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #70c0b1;
+  color: #183d35;
+  font: 1rem/2 monospace;
+  letter-spacing: 0.125rem;
+}
+main {
+  max-width: 69rem;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 0.625rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 3rem;
+}
+h1 {
+  margin: 0;
+  font: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+.editor {
+  box-shadow: 0 0 3rem #0004;
+}
+header {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  color: #222;
+}
+.header-title {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem 3rem;
+}
+header input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: 4.5;
+  color: inherit;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  min-height: 44px;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.transport {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 3rem;
+}
+.transport button {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 1.5rem;
+}
+.transport img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.track {
+  position: relative;
+  overflow: hidden;
+  background: #222;
+  border: 0.25rem solid #eee;
+}
+.track pre,
+.track textarea {
+  margin: 0;
+  padding: 3rem;
+  font: 1rem/3 monospace;
+  letter-spacing: 0.125rem;
+  tab-size: 2;
+  white-space: pre;
+  text-transform: uppercase;
+  scrollbar-gutter: stable;
+}
+.track pre {
+  position: absolute;
+  inset: 0;
+  color: #eee;
+  overflow: hidden;
+  pointer-events: none;
+}
+.track textarea {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 20rem;
+  resize: vertical;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  caret-color: #eee;
+}
+.track-instrument,
+.track-rest {
+  color: #d54e53;
+  background: #333;
+}
+.track-note {
+  color: #e78c45;
+  background: #333;
+}
+.track-modifier {
+  color: #e7c547;
+  background: #333;
+}
+.editor-footer {
+  background: #222;
+  color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  gap: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+.editor-footer p {
+  margin: 0;
+}
+.hint {
+  font-size: 0.75rem;
+  margin: 1rem 3rem;
+  letter-spacing: 0;
+}
+.guide {
+  margin: 1rem 3rem;
+  letter-spacing: 0;
+}
+.guide summary {
+  cursor: pointer;
+  width: fit-content;
+  min-height: 44px;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+dl div {
+  margin: 1.5rem 0;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0.25rem 0;
+}
+footer {
+  padding: 4rem 3rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+.error {
+  padding: 1rem;
+  border: 1px solid currentColor;
+}
+:focus-visible {
+  outline: 3px solid #183d35;
+  outline-offset: 4px;
+}
+.track textarea:focus-visible {
+  outline: 2px solid #7aa6da;
+  outline-offset: -2px;
+}
+.editor-footer button:focus-visible {
+  outline-color: #7aa6da;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+::selection {
+  background: #70c0b1;
+}
+@media (min-width: 1441px) {
+  :root {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1921px) {
+  :root {
+    font-size: 20px;
+  }
+}
+@media (max-width: 640px) {
+  main {
+    width: 100%;
+    padding: 0;
+  }
+  nav {
+    padding: 2rem 1.5rem;
+  }
+  header {
+    flex-wrap: wrap;
+  }
+  .header-title {
+    flex-basis: 100%;
+    padding: 1rem 1.5rem 0;
+  }
+  header input {
+    line-height: 2;
+  }
+  .transport {
+    padding: 0.5rem 1.5rem 1rem;
+    gap: 1rem;
+  }
+  .transport button {
+    width: 44px;
+    height: 44px;
+    padding: 0.5rem;
+  }
+  .track pre,
+  .track textarea {
+    padding: 1.5rem;
+  }
+  .editor-footer {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .hint,
+  .guide {
+    margin: 1rem 1.5rem;
+  }
+  footer {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (forced-colors: active) {
+  .track pre {
+    visibility: hidden;
+  }
+  .track textarea {
+    background: Canvas;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
+    caret-color: CanvasText;
+  }
+}

@@ -1,2 +1,9 @@
-node_modules
-dist/*
+node_modules/
+.next/
+out/
+.wrangler/
+.env*
+.dev.vars*
+*.tsbuildinfo
+.DS_Store
+next-env.d.ts
